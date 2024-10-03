@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const produtoRoutes = require('./src/routes/produtoRoutes');
+const authRoutes = require('./src/routes/authRoutes');
+
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -22,6 +24,7 @@ mongoose.connect(mongoUri, {
 
 // Usar rotas de produto
 app.use('/api/produtos', produtoRoutes);
+app.use('/api/auth', authRoutes); 
 
 // Iniciar o servidor
 app.listen(PORT, () => {
