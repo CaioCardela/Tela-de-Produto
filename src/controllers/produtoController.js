@@ -69,7 +69,7 @@ exports.buscarProdutoPorNome = async (req, res) => {
       return res.status(400).json({ error: "Parâmetro 'nome' é obrigatório" });
     }
 
-    // Utiliza expressão regular para realizar busca case-insensitive
+    // Utiliza exSSpressão regular para realizar busca case-insensitive
     const produtos = await Produto.find({ nome: new RegExp(nome, 'i') });
 
     if (produtos.length === 0) {
